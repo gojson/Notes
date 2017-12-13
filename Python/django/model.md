@@ -5,6 +5,7 @@ __str__
 
 ### 1.文件:polls/models.py
 
+```python
 from django.db import models
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
@@ -14,10 +15,12 @@ class Choice(models.Model):
     question = models.ForeignKey(Question)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
-
+```
 
 ### 2.激活model
 ###通过运行makemigrations告诉Django，已经对模型做了一些更改（在这个例子中，你创建了一个新的模型）并且会将这些更改记录为迁移文件
+
+```python
 mysite/settings.py
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -28,6 +31,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
 )
+```
 
 ### 3. 执行命令
 python manage.py makemigrations polls
